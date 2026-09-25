@@ -13,8 +13,8 @@ and enforceable rules come from the Competition Manual V1.
 
 | | What you get | Where |
 |---|---|---|
-| **In the browser** | Offline practice, drills, scenario editor, replays. Any computer with a modern browser (Chrome, Edge, Firefox, Safari), incl. Chromebooks. Nothing to install. | *link to the itch.io / GitHub Pages page* |
-| **Windows download** | Everything above **plus** online rooms (over the internet or same network) and importing your team's CAD. | *link to the latest [Release](../../releases)* |
+| **In the browser** | Offline practice, drills, scenario editor, replays. Any computer with a modern browser (Chrome, Edge, Firefox, Safari), incl. Chromebooks. Nothing to install. | https://pandara.org |
+| **Windows download** | Everything above **plus** online rooms (over the internet or same network) and importing your team's CAD. | Download this repo |
 
 Windows download: unzip the whole folder and run `BioBuzz3D.exe` (keep the
 `.dll` files next to it). The first time, Windows SmartScreen says "Windows
