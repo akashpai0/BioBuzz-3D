@@ -1,7 +1,7 @@
 # BIOBUZZ 3D
 
 **A 3D driver-practice simulator for the FTC 2026–27 game BIOBUZZ**, built in
-Godot 4.5 by [FTC Team 506 Pandara](https://pandara.org/play).
+Godot 4.5 by [FTC Team 506 Pandara](https://pandara.org).
 
 Real rigid-body physics (Jolt, 180 Hz) instead of a 2D approximation: the HIVES
 tip from the weight of what is in them, balls roll, robots push. Field, scoring
@@ -13,7 +13,7 @@ and enforceable rules come from the Competition Manual V1.
 
 | | What you get | Where |
 |---|---|---|
-| **In the browser** | Offline practice, drills, scenario editor, replays. Any computer with a modern browser (Chrome, Edge, Firefox, Safari), incl. Chromebooks. Nothing to install. | https://pandara.org |
+| **In the browser** | Offline practice, drills, scenario editor, replays. Any computer with a modern browser (Chrome, Edge, Firefox, Safari), incl. Chromebooks. Nothing to install. | https://pandara.org/play |
 | **Windows download** | Everything above **plus** online rooms (over the internet or same network) and importing your team's CAD. | Download this repo |
 
 Windows download: unzip the whole folder and run `BioBuzz3D.exe` (keep the
