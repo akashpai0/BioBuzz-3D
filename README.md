@@ -1,7 +1,7 @@
 # BIOBUZZ 3D
 
 **A 3D driver-practice simulator for the FTC 2026–27 game BIOBUZZ**, built in
-Godot 4.5 by [FTC Team 506 Pandara](https://pandara.org).
+Godot 4.5 by [FTC Team 506 Pandara](https://pandara.org/play).
 
 Real rigid-body physics (Jolt, 180 Hz) instead of a 2D approximation: the HIVES
 tip from the weight of what is in them, balls roll, robots push. Field, scoring
