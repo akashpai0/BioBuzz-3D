@@ -1,0 +1,54 @@
+BIOBUZZ 3D — UI repairs merged + Epic Online Services built in — 2026-09-23
+===========================================================================
+
+Folder: Downloads\BIOBUZZ3D-ui-fixes\   (open BioBuzz3D.exe; keep the DLLs beside it)
+
+  BioBuzz3D.exe                                  98,109,064 B   (2026-09-24: + team credit with panda)
+    SHA-256 2b10b383af5b7632a7d66a257abd1d08061ea4382b1845143618510afd1de8b1
+  EOSSDK-Win64-Shipping.dll                      19,531,704 B
+    SHA-256 9c498fe31c8df1d9085dfa9c71c6d50ec6b569acdb29f1decb97be105b6341dc
+  libeosg.windows.template_release.x86_64.dll     1,144,320 B
+    SHA-256 b599c4fce153849093efcdc13917075f76f8ef171d47e6a2522346d61221527b
+  xaudio2_9redist.dll                               847,440 B
+    SHA-256 0e01f400baa09694cacfd2cfbff0d721c17b56785d2d6e29b6fdd117f70ccc1e
+
+Godot 4.5.stable release export. Game version 2026.09.23-hosted-1 (unchanged:
+the online room logic did not change, so it can share rooms with the earlier
+same-network build; internet rooms need this build on both ends).
+Contains eos_credentials.cfg (your Epic product) and the EOSG 2.3.1 plugin.
+
+Launch check on your PC (Windows, RTX 2080 Ti): the exe opened to the Play
+screen; Online showed "Ready to connect"; Host room (Over the internet) logged
+in to Epic anonymously, created the room and an internet invite; End session
+worked; "Connected to Epic Online Services. This network's NAT type: moderate."
+No second computer joined — the two-connection test in ONLINE.md is still to do.
+
+Tests (Linux container, software OpenGL, isolated profile folders)
+  new   debug_ui_repairs 53/53 at 1280x720, 1920x1080, 2560x1440
+  UI    shot_all: every screen fits, 0 failures, at all three sizes
+  UI    debug_editor, debug_pause, debug_workflow walk+read, debug_menus: 0 failures
+  rep.  debug_replay 163 + 12
+  net   link 18, smoke, debug_net 75 + 6, 2proc 29 (x2), eos_sim 16 (after test fixes)
+  game  36 offline gameplay harnesses exit 0; eos_real_probe (real plugin) OK
+  OPEN  debug_net_client: 1 check fails intermittently — when the host's game
+        is killed right after Lobby -> Start, this player's copy of that new
+        run is sometimes not in the replay list. Also fails on the code from
+        before this merge in a clean profile (older runs passed only because
+        of leftover replays). Not caused by the UI repairs; not fixed yet.
+
+2026-09-24 STL import fixes: debug_cad_stl OK (binary, "solid"-header binary,
+tab-separated ASCII, outward faces, Z-up stands upright, 10M-triangle file
+refused with export advice, your 261k-triangle intake loads in 0.4 s and from
+memory after that); debug_menus, debug_roster, debug_editor, debug_drive,
+smoke_match, debug_ui_repairs 1920, shot_all 1280: all pass.
+
+2026-09-24 CAD is the robot: debug_cad_robot OK (preview CAD-only with
+FRONT/BACK/launcher guides; 6 rotations incl. odd angles stay on the floor and
+inside the 18 in footprint; +90 button; in a match our robot is CAD only, no
+stock wheels/launcher, opponent stock). Also passing: menus, roster, editor,
+drive, smoke_match, coop, replay write+read, net smoke, ui_repairs 1920,
+shot_all 1280, debug_cad_stl.
+
+2026-09-24 team credit: [panda] "BUILT BY 506 PANDARA · pandara.org" (506 in panda purple) top right of the
+Play page (opens https://pandara.org); Online card says "send an invite".
+debug_menus, debug_workflow walk, debug_net_smoke, shot_all 1280 + 2560 pass.

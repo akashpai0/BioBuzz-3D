@@ -1,0 +1,76 @@
+; BIOBUZZ 3D — FTC 2026-27 driver practice sim with real rigid-body physics.
+; Engine configuration file. Open this folder with Godot 4.5 or newer.
+
+config_version=5
+
+[application]
+
+config/name="BIOBUZZ 3D"
+config/description="FTC 2026-27 BIOBUZZ driver practice, rebuilt in Godot with real rigid-body physics."
+run/main_scene="res://scenes/boot.tscn"
+config/features=PackedStringArray("4.5", "Forward Plus")
+
+[autoload]
+
+BB="*res://scripts/bb.gd"
+SFX="*res://scripts/audio.gd"
+Gui="*res://scripts/ui.gd"
+Settings="*res://scripts/settings.gd"
+RobotShop="*res://scripts/robot_shop.gd"
+CadImport="*res://scripts/cad_import.gd"
+EOSGRuntime="*res://addons/epic-online-services-godot/runtime.gd"
+HPlatform="*res://addons/epic-online-services-godot/heos/hplatform.gd"
+HAuth="*res://addons/epic-online-services-godot/heos/hauth.gd"
+HAchievements="*res://addons/epic-online-services-godot/heos/hachievements.gd"
+HFriends="*res://addons/epic-online-services-godot/heos/hfriends.gd"
+HStats="*res://addons/epic-online-services-godot/heos/hstats.gd"
+HLeaderboards="*res://addons/epic-online-services-godot/heos/hleaderboards.gd"
+HLobbies="*res://addons/epic-online-services-godot/heos/hlobbies.gd"
+HP2P="*res://addons/epic-online-services-godot/heos/hp2p.gd"
+HSessions="*res://addons/epic-online-services-godot/heos/hsessions.gd"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
+; EXPAND, not the default KEEP. With KEEP the UI is letterboxed into a fixed
+; 1600x900 canvas and a 1908x960 screen gets black bars; with EXPAND the menu
+; is handed the real window shape and lays itself out to fit it. The title
+; screen is built to fit 1600x900 of logical space, which EXPAND guarantees is
+; the WORST case — a wider or taller window only ever gets more room.
+window/stretch/aspect="expand"
+window/dpi/allow_hidpi=true
+window/size/resizable=true
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+; 180 Hz, not 60: a launched element crosses 3 cm per step at 5.6 m/s and the
+; CELL and FLOWER walls are about that thick. Combined with continuous_cd on
+; every element, nothing tunnels through a wall it should have hit.
+common/physics_ticks_per_second=180
+common/max_physics_steps_per_frame=24
+; Draw moving things between physics steps (visual only — the simulation is
+; unchanged). Keeps motion smooth when the frame rate isn't a multiple of 180,
+; which is most of the time in a browser.
+common/physics_interpolation=true
+common/physics_jitter_fix=0.0
+3d/default_gravity=9.81
+jolt_physics_3d/simulation/velocity_steps=12
+jolt_physics_3d/simulation/position_steps=4
+jolt_physics_3d/simulation/penetration_slop=0.001
+
+[rendering]
+
+scaling_3d/scale=1.0
+; The web build has to run on the Compatibility (WebGL2) renderer — browsers
+; have no Vulkan — and that path wants ETC2/ASTC textures available.
+renderer/rendering_method.web="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=2
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=2
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/epic-online-services-godot/plugin.cfg")
